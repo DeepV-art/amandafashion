@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nikini Amanda | Fashion Designer</title>
+  <title>Nikini Amanda - Fashion Portfolio</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -76,19 +76,6 @@
       animation: fadeInUp 2s ease;
     }
 
-    .btn {
-      margin-top: 30px;
-      padding: 12px 24px;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: transform 0.3s ease;
-    }
-    .btn:hover { transform: scale(1.05); }
-
     section {
       padding: 80px 40px;
       text-align: center;
@@ -101,53 +88,56 @@
       margin-top: 40px;
     }
 
-    .gallery img {
-      width: 100%;
+    .item {
+      background: #1a1a1f;
       border-radius: 10px;
+      padding: 20px;
       transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
-    .gallery img:hover {
+    .item:hover {
       transform: scale(1.05);
       box-shadow: 0 10px 30px rgba(233,30,99,0.4);
     }
+    .item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .item h3 { margin: 10px 0; }
+    .item p { color: var(--muted); }
 
-    footer {
+    .btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+    .btn:hover { transform: scale(1.05); }
+
+    #cart {
+      position: fixed;
+      top: 80px;
+      right: 20px;
       background: #111;
-      padding: 30px;
-      text-align: center;
-      color: var(--muted);
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      color: var(--text);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideDown {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    /* Scroll animation */
-    .fade-section {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease;
-    }
-    .fade-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #cart h3 { margin-top: 0; }
+    #cart ul { list-style: none; padding: 0; }
+    #cart li { margin: 8px 0; font-size: 14px; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Amanda Fashion</h1>
+    <h1>Nikini Amanda</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#collection">Collection</a>
@@ -156,51 +146,62 @@
   </header>
 
   <section class="hero">
-    <h2>Nikini Amanda</h2>
-    <p>Discover timeless fashion pieces crafted with passion and precision. A blackish aesthetic that highlights sophistication.</p>
-    <button class="btn">Explore Collection</button>
+    <h2>Elegance in Every Stitch</h2>
+    <p>Discover the fashion artistry of Nikini Amanda. A blackish aesthetic with bold sophistication.</p>
   </section>
 
-  <section id="about" class="fade-section">
-    <h2>About Me</h2>
-    <p>I am a fashion designer blending modern elegance with bold creativity. My portfolio showcases unique designs that celebrate individuality.</p>
-  </section>
-
-  <section id="collection" class="fade-section">
+  <section id="collection">
     <h2>Featured Collection</h2>
     <div class="gallery">
-      <img src="https://via.placeholder.com/400x500/111/fff?text=Look+1" alt="Fashion Look 1">
-      <img src="https://via.placeholder.com/400x500/222/fff?text=Look+2" alt="Fashion Look 2">
-      <img src="https://via.placeholder.com/400x500/333/fff?text=Look+3" alt="Fashion Look 3">
+      <div class="item">
+        <img src="https://via.placeholder.com/400x500/111/fff?text=Look+1" alt="Look 1">
+        <h3>Evening Gown</h3>
+        <p>$250</p>
+        <button class="btn" onclick="addToCart('Evening Gown - $250')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="https://via.placeholder.com/400x500/222/fff?text=Look+2" alt="Look 2">
+        <h3>Casual Dress</h3>
+        <p>$120</p>
+        <button class="btn" onclick="addToCart('Casual Dress - $120')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="https://via.placeholder.com/400x500/333/fff?text=Look+3" alt="Look 3">
+        <h3>Designer Jacket</h3>
+        <p>$300</p>
+        <button class="btn" onclick="addToCart('Designer Jacket - $300')">Add to Cart</button>
+      </div>
     </div>
   </section>
 
-  <section id="contact" class="fade-section">
-    <h2>Contact</h2>
-    <p>Email: ceo1@amanda.fashion</p>
-    <p>Instagram: @AmandaFashion</p>
+  <section id="about">
+    <h2>About Nikini Amanda</h2>
+    <p>Nikini Amanda is a fashion designer blending modern elegance with bold creativity. Her portfolio showcases unique designs that celebrate individuality and sophistication.</p>
   </section>
 
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: nikini@example.com</p>
+    <p>Instagram: @nikiniamanda</p>
+  </section>
+
+  <div id="cart">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+  </div>
+
   <footer>
-    <p>© 2026 Nikini Amanda. All rights reserved.</p>
+    <p style="text-align:center; padding:20px; color:var(--muted);">© 2026 Nikini Amanda. All rights reserved.</p>
   </footer>
 
   <script>
-    // Scroll reveal animation
-    const sections = document.querySelectorAll('.fade-section');
-    const revealOnScroll = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(sec => {
-        const boxTop = sec.getBoundingClientRect().top;
-        if(boxTop < triggerBottom) {
-          sec.classList.add('visible');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+    function addToCart(item) {
+      const cartList = document.getElementById('cart-items');
+      const li = document.createElement('li');
+      li.textContent = item;
+      cartList.appendChild(li);
+    }
   </script>
 
 </body>
 </html>
-
