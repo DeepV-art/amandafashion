@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fashion Designer</title>
+  <title>Fashion Designer Portfolio</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -131,12 +131,23 @@
       from { transform: translateY(50px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
+
+    /* Scroll animation */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Nikini Amanda</h1>
+    <h1>Designer Name</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#collection">Collection</a>
@@ -150,7 +161,12 @@
     <button class="btn">Explore Collection</button>
   </section>
 
-  <section id="collection">
+  <section id="about" class="fade-section">
+    <h2>About Me</h2>
+    <p>I am a fashion designer blending modern elegance with bold creativity. My portfolio showcases unique designs that celebrate individuality.</p>
+  </section>
+
+  <section id="collection" class="fade-section">
     <h2>Featured Collection</h2>
     <div class="gallery">
       <img src="https://via.placeholder.com/400x500/111/fff?text=Look+1" alt="Fashion Look 1">
@@ -159,10 +175,31 @@
     </div>
   </section>
 
+  <section id="contact" class="fade-section">
+    <h2>Contact</h2>
+    <p>Email: designer@example.com</p>
+    <p>Instagram: @designerhandle</p>
+  </section>
+
   <footer>
     <p>© 2026 Designer Name. All rights reserved.</p>
   </footer>
 
+  <script>
+    // Scroll reveal animation
+    const sections = document.querySelectorAll('.fade-section');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const boxTop = sec.getBoundingClientRect().top;
+        if(boxTop < triggerBottom) {
+          sec.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+
 </body>
 </html>
-
